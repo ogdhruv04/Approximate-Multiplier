@@ -51,7 +51,7 @@ Resource utilization reveals 12 LUTs and 16 IOBs where as the exact one uses 16 
 
 ![Resource Utilization (2)](https://github.com/user-attachments/assets/e58ad0ae-3c01-49d7-af07-7041dc47cec8)
 
-
+Power Utilization Results
 
 ![Power Utilization](https://github.com/user-attachments/assets/0312331c-582b-40f0-adc1-b3864c63ccec)
 
