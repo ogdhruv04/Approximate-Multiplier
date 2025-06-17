@@ -18,6 +18,41 @@ We have also used this 4x2 approximate compressor which takes four equally-weigh
 
 We have initialized partial products in the given way, where Pi[j] represents the partial product of Ai and Bj.
 
+![image](https://github.com/user-attachments/assets/74c1eae1-7c8c-4fc6-ae40-65f3d608a1d1)
+
+A visualization for the multiplication tree
+
+![image](https://github.com/user-attachments/assets/d53fb590-525a-47e3-912f-3aa404c91ab0)
+
+Result[0] and Result[1] (the two rightmost columns) are easily without requiring a lot of calculations.
+![image](https://github.com/user-attachments/assets/25c95861-57d6-4871-9f5e-7449dde11e26)
+
+For the computation of the third column, we have not considered the carry due to the second rightmost column majorly as it has a less probability of propagating and inducing errors in the higher significant bits. This makes it easier for us to now use the approximate full adder to reduce this column in one stage as it has 3 variables to obtain result[2] and input carry for the next column,
+
+![image](https://github.com/user-attachments/assets/c7c176ba-e625-465a-93cf-01e99e971475)
+
+For the middle column, since it has the most amount of variables (4) and a carry input, it requires the most expensive computation. We first reduced it into 2 variables by using our approximate 4x2 compressor and then utilized our approximate full adder to evaluate the result[3] for this column in 2 stages.
+
+![image](https://github.com/user-attachments/assets/c6313c0e-c196-4ad2-817d-d2a66be0975a)
+
+Calculations for the rest of the result bits, result[4] consists of 3 input variables and a carry which is simplified with the help of the 4x2 compressor considered here in a single stage. 
+Result[5] consists of 2 input variables and a carry which can be dealt similarly with the approx full adder that we designed.
+Finally, for Result[6] and Result[7], as it consists of the previous carry and a single input variable p33, it is computed using an exact half adder as these leading bits hold significant weightage to the accuracy of the multiplier.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
