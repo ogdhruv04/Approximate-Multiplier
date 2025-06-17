@@ -1,4 +1,4 @@
-# Approximate-Multiplier
+![Error Analysis](https://github.com/user-attachments/assets/864ba59f-c88f-4801-a1a0-24a45377c4bf)# Approximate-Multiplier
 
 This project implements a 4×4 unsigned approximate multiplier designed with a customized Dadda tree reduction combined with smart use of compressors to achieve a low-error (7.09% Mean Relative Error over all 256 input combinations), efficient hardware architecture (12 LUTs, an improvement over the exact multiplier which uses 16 LUTs) . The core idea is to prune carries with very low probability of being 1 andusing compressors to reduce stages whenever required thereby reducing hardware complexity and power consumption while maintaining acceptable accuracy.
 
@@ -41,7 +41,19 @@ Result[5] consists of 2 input variables and a carry which can be dealt similarly
 Finally, for Result[6] and Result[7], as it consists of the previous carry and a single input variable p33, it is computed using an exact half adder as these leading bits hold significant weightage to the accuracy of the multiplier.
 
 
+# Results
 
+Our approximate multiplier achieves an impressive 7.09% Mean Relative Error over all 256 possible input combinations.
+
+![Error Analysis](https://github.com/user-attachments/assets/279a1058-d403-40df-9572-c09d58a70879)
+
+Resource utilization reveals 12 LUTs and 16 IOBs where as the exact one uses 16 LUTs and 16 IOBs.
+
+![Resource Utilization (2)](https://github.com/user-attachments/assets/e58ad0ae-3c01-49d7-af07-7041dc47cec8)
+
+
+
+![Power Utilization](https://github.com/user-attachments/assets/0312331c-582b-40f0-adc1-b3864c63ccec)
 
 
 
