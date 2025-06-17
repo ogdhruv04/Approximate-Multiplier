@@ -14,5 +14,10 @@ For this particular half adder, we have not utilized any particular approximatio
 
 We have also used this 4x2 approximate compressor which takes four equally-weighted bits and returns one sum bit and one carry bit that is one position higher — effectively replacing two full adders with a single, faster and approximate unit helpful for reducing multiplication columns.
 
+![image](https://github.com/user-attachments/assets/608e5355-579a-4ab3-9ebb-779ad90c5795)
+
+We have initialized partial products in the given way, where Pi[j] represents the partial product of Ai and Bj.
+
+
 
 
