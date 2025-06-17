@@ -6,17 +6,17 @@ This project implements a 4×4 unsigned approximate multiplier designed with a c
 
 ![image](https://github.com/user-attachments/assets/dc3c4188-cd12-4e48-a58e-71cdbbc743bb)
 
-For our design, we have used this approximate full adder as it simplifies computation, resources utilized while maintaining a respectable accuracy, where output S is correct in 6/8 input combinations and Cout is correct in 7/8 combinations.
+For our design, we have used this approximate full adder as it simplifies computation and resources utilized while maintaining a respectable accuracy, where output S is correct in 6/8 input combinations and Cout is correct in 7/8 combinations.
 
 ![image](https://github.com/user-attachments/assets/953fe9f7-de49-4aa9-875a-fac46ac2dce5)
 
-For this particular half adder, we have not utilized any particular approximations as we used it in higher multiplication stages holding more weightage (MSB).
+For this particular half adder, we have not utilized any particular approximations as we used it in higher multiplication stages holding more weight (MSB), furthermore it is much lesser computationally expensive than the other blocks.
 
-We have also used this 4x2 approximate compressor which takes four equally-weighted bits and returns one sum bit and one carry bit that is one position higher — effectively replacing two full adders with a single, faster and approximate unit helpful for reducing multiplication columns.
+We have also used this 4×2 approximate compressor which takes four equally‑weighted bits and returns one sum bit and one carry bit that is one position higher — effectively replacing two full adders with a single, faster, approximate unit helpful for reducing multiplication columns.
 
 ![image](https://github.com/user-attachments/assets/608e5355-579a-4ab3-9ebb-779ad90c5795)
 
-We have initialized partial products in the given way, where Pi[j] represents the partial product of Ai and Bj.
+We generate the 4×4 array of partial products pij = Ai & Bj, which can be visualized (grouped by output weight) as:
 
 ![image](https://github.com/user-attachments/assets/74c1eae1-7c8c-4fc6-ae40-65f3d608a1d1)
 
@@ -36,6 +36,7 @@ For the middle column, since it has the most amount of variables (4) and a carry
 ![image](https://github.com/user-attachments/assets/c6313c0e-c196-4ad2-817d-d2a66be0975a)
 
 Calculations for the rest of the result bits, result[4] consists of 3 input variables and a carry which is simplified with the help of the 4x2 compressor considered here in a single stage. 
+
 Result[5] consists of 2 input variables and a carry which can be dealt similarly with the approx full adder that we designed.
 Finally, for Result[6] and Result[7], as it consists of the previous carry and a single input variable p33, it is computed using an exact half adder as these leading bits hold significant weightage to the accuracy of the multiplier.
 
